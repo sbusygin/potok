@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -60,5 +58,19 @@ public class Main {
         FileWriter fileWriter = new FileWriter(temp);
         fileWriter.write(String.valueOf(stringBuilder));
         fileWriter.close();
+
+
+
+        GameProgress game1 = new GameProgress(78,3,17,20.1);
+        GameProgress game2 = new GameProgress(89,3,19,25.3);
+        GameProgress game3 = new GameProgress(56,7,22,34.6);
+
+    }
+
+    public void saveGame (String path, GameProgress gameProgress) throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream(path);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(gameProgress);
+        objectOutputStream.close();
     }
 }
