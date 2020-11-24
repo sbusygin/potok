@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -72,5 +74,15 @@ public class Main {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(gameProgress);
         objectOutputStream.close();
+    }
+
+    public void zipFiles(String path, String obj) throws FileNotFoundException {
+        FileOutputStream zipFile = new FileOutputStream(path);
+        try (ZipOutputStream zip = new ZipOutputStream(zipFile)) {
+            zip.putNextEntry(new ZipEntry(obj);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
